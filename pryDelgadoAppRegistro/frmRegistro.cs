@@ -15,10 +15,10 @@ namespace pryDelgadoAppRegistro
 
         private void cmdAceptar_Click(object sender, EventArgs e)
         {
-            lstbRegistros.Items.Add("Fecha:" +" "+dtpFecha);
+            lstbRegistros.Items.Add("Fecha:" +" "+dtpFecha.Text);
             lstbRegistros.Items.Add("Producto:"+ " " + lstProductos.SelectedItem);
             lstbRegistros.Items.Add("Cantidad:" + " " +nudCantidad.Value);
-            lstbRegistros.Items.Add("Precio:$" + " " + mtbPrecio.Text);
+            lstbRegistros.Items.Add("Precio:$" + " " + mtbPrecio.Text+"\n");
 
             LimpiarControles();
         }
