@@ -35,9 +35,10 @@
             lblTitulo = new Label();
             dtpFecha = new DateTimePicker();
             lstProductos = new ComboBox();
-            txtPrecioUnitario = new TextBox();
             cmdAceptar = new Button();
-            txtCantidad = new TextBox();
+            nudCantidad = new NumericUpDown();
+            mtbPrecio = new MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
             SuspendLayout();
             // 
             // lblFecha
@@ -89,7 +90,6 @@
             lblTitulo.Size = new Size(144, 21);
             lblTitulo.TabIndex = 4;
             lblTitulo.Text = "Registro de Venta";
-            
             // 
             // dtpFecha
             // 
@@ -102,17 +102,11 @@
             // lstProductos
             // 
             lstProductos.FormattingEnabled = true;
+            lstProductos.Items.AddRange(new object[] { " teclado", "pantalla", "memoria RAM", "disco rígido", "mouse" });
             lstProductos.Location = new Point(260, 149);
             lstProductos.Name = "lstProductos";
             lstProductos.Size = new Size(226, 23);
             lstProductos.TabIndex = 6;
-            // 
-            // txtPrecioUnitario
-            // 
-            txtPrecioUnitario.Location = new Point(260, 271);
-            txtPrecioUnitario.Name = "txtPrecioUnitario";
-            txtPrecioUnitario.Size = new Size(223, 23);
-            txtPrecioUnitario.TabIndex = 8;
             // 
             // cmdAceptar
             // 
@@ -124,21 +118,31 @@
             cmdAceptar.Text = "ACEPTAR";
             cmdAceptar.UseVisualStyleBackColor = true;
             // 
-            // txtCantidad
+            // nudCantidad
             // 
-            txtCantidad.Location = new Point(263, 211);
-            txtCantidad.Name = "txtCantidad";
-            txtCantidad.Size = new Size(223, 23);
-            txtCantidad.TabIndex = 10;
+            nudCantidad.Location = new Point(260, 208);
+            nudCantidad.Name = "nudCantidad";
+            nudCantidad.Size = new Size(226, 23);
+            nudCantidad.TabIndex = 10;
+            nudCantidad.ValueChanged += numericUpDown2_ValueChanged;
+            // 
+            // mtbPrecio
+            // 
+            mtbPrecio.Location = new Point(260, 275);
+            mtbPrecio.Mask = "99999$";
+            mtbPrecio.Name = "mtbPrecio";
+            mtbPrecio.Size = new Size(227, 23);
+            mtbPrecio.TabIndex = 11;
+            mtbPrecio.ValidatingType = typeof(int);
             // 
             // frmRegistro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(txtCantidad);
+            Controls.Add(mtbPrecio);
+            Controls.Add(nudCantidad);
             Controls.Add(cmdAceptar);
-            Controls.Add(txtPrecioUnitario);
             Controls.Add(lstProductos);
             Controls.Add(dtpFecha);
             Controls.Add(lblTitulo);
@@ -148,6 +152,7 @@
             Controls.Add(lblFecha);
             Name = "frmRegistro";
             Text = "Registro";
+            ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -162,8 +167,8 @@
         private DateTimePicker dtpFecha;
         private ComboBox lstProductos;
         private NumericUpDown numericUpDown1;
-        private TextBox txtPrecioUnitario;
         private Button cmdAceptar;
-        private TextBox txtCantidad;
+        private NumericUpDown nudCantidad;
+        private MaskedTextBox mtbPrecio;
     }
 }
