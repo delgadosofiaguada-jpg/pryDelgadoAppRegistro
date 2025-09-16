@@ -187,6 +187,7 @@
             Controls.Add(lblFecha);
             Name = "frmRegistro";
             Text = "Registro";
+            Load += frmRegistro_Load;
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
             ResumeLayout(false);
             PerformLayout();
