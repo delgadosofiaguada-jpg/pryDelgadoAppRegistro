@@ -18,7 +18,7 @@ namespace pryDelgadoAppRegistro
             lstbRegistros.Items.Add("Fecha:" +" "+dtpFecha);
             lstbRegistros.Items.Add("Producto:"+ " " + lstProductos.SelectedItem);
             lstbRegistros.Items.Add("Cantidad:" + " " +nudCantidad.Value);
-            lstbRegistros.Items.Add(("Precio:$" + " " + mtbPrecio);
+            lstbRegistros.Items.Add("Precio:$" + " " + mtbPrecio.Text);
 
             LimpiarControles();
         }
