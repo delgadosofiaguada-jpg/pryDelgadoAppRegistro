@@ -48,9 +48,9 @@
             // 
             lblFecha.AutoSize = true;
             lblFecha.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblFecha.Location = new Point(29, 84);
+            lblFecha.Location = new Point(33, 112);
             lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(50, 21);
+            lblFecha.Size = new Size(62, 28);
             lblFecha.TabIndex = 0;
             lblFecha.Text = "Fecha";
             // 
@@ -58,9 +58,9 @@
             // 
             lblPrecioUnitario.AutoSize = true;
             lblPrecioUnitario.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPrecioUnitario.Location = new Point(29, 276);
+            lblPrecioUnitario.Location = new Point(33, 368);
             lblPrecioUnitario.Name = "lblPrecioUnitario";
-            lblPrecioUnitario.Size = new Size(107, 20);
+            lblPrecioUnitario.Size = new Size(138, 25);
             lblPrecioUnitario.TabIndex = 1;
             lblPrecioUnitario.Text = "Precio Unitario";
             // 
@@ -68,9 +68,9 @@
             // 
             lblCantidad.AutoSize = true;
             lblCantidad.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCantidad.Location = new Point(29, 210);
+            lblCantidad.Location = new Point(33, 280);
             lblCantidad.Name = "lblCantidad";
-            lblCantidad.Size = new Size(69, 20);
+            lblCantidad.Size = new Size(88, 25);
             lblCantidad.TabIndex = 2;
             lblCantidad.Text = "Cantidad";
             // 
@@ -78,9 +78,9 @@
             // 
             lblProducto.AutoSize = true;
             lblProducto.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblProducto.Location = new Point(29, 148);
+            lblProducto.Location = new Point(33, 197);
             lblProducto.Name = "lblProducto";
-            lblProducto.Size = new Size(69, 20);
+            lblProducto.Size = new Size(89, 25);
             lblProducto.TabIndex = 3;
             lblProducto.Text = "Producto";
             // 
@@ -88,35 +88,42 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(29, 25);
+            lblTitulo.Location = new Point(33, 33);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(144, 21);
+            lblTitulo.Size = new Size(180, 28);
             lblTitulo.TabIndex = 4;
             lblTitulo.Text = "Registro de Venta";
             // 
             // dtpFecha
             // 
             dtpFecha.CalendarFont = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtpFecha.Location = new Point(173, 84);
+            dtpFecha.Location = new Point(198, 112);
+            dtpFecha.Margin = new Padding(3, 4, 3, 4);
             dtpFecha.Name = "dtpFecha";
-            dtpFecha.Size = new Size(226, 23);
+            dtpFecha.Size = new Size(258, 27);
             dtpFecha.TabIndex = 5;
+            dtpFecha.ValueChanged += dtpFecha_ValueChanged;
             // 
             // lstProductos
             // 
+            lstProductos.Enabled = false;
             lstProductos.FormattingEnabled = true;
             lstProductos.Items.AddRange(new object[] { " teclado", "pantalla", "memoria RAM", "disco rígido", "mouse" });
-            lstProductos.Location = new Point(173, 151);
+            lstProductos.Location = new Point(198, 201);
+            lstProductos.Margin = new Padding(3, 4, 3, 4);
             lstProductos.Name = "lstProductos";
-            lstProductos.Size = new Size(226, 23);
+            lstProductos.Size = new Size(258, 28);
             lstProductos.TabIndex = 6;
+            lstProductos.SelectedIndexChanged += lstProductos_SelectedIndexChanged;
             // 
             // cmdAceptar
             // 
+            cmdAceptar.Enabled = false;
             cmdAceptar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            cmdAceptar.Location = new Point(29, 362);
+            cmdAceptar.Location = new Point(33, 483);
+            cmdAceptar.Margin = new Padding(3, 4, 3, 4);
             cmdAceptar.Name = "cmdAceptar";
-            cmdAceptar.Size = new Size(96, 30);
+            cmdAceptar.Size = new Size(110, 40);
             cmdAceptar.TabIndex = 9;
             cmdAceptar.Text = "ACEPTAR";
             cmdAceptar.UseVisualStyleBackColor = true;
@@ -124,26 +131,33 @@
             // 
             // nudCantidad
             // 
-            nudCantidad.Location = new Point(173, 210);
+            nudCantidad.Enabled = false;
+            nudCantidad.Location = new Point(198, 280);
+            nudCantidad.Margin = new Padding(3, 4, 3, 4);
             nudCantidad.Name = "nudCantidad";
-            nudCantidad.Size = new Size(226, 23);
+            nudCantidad.Size = new Size(258, 27);
             nudCantidad.TabIndex = 10;
+            nudCantidad.ValueChanged += nudCantidad_ValueChanged;
             // 
             // mtbPrecio
             // 
-            mtbPrecio.Location = new Point(173, 277);
+            mtbPrecio.Enabled = false;
+            mtbPrecio.Location = new Point(198, 369);
+            mtbPrecio.Margin = new Padding(3, 4, 3, 4);
             mtbPrecio.Mask = "99999$";
             mtbPrecio.Name = "mtbPrecio";
-            mtbPrecio.Size = new Size(227, 23);
+            mtbPrecio.Size = new Size(259, 27);
             mtbPrecio.TabIndex = 11;
             mtbPrecio.ValidatingType = typeof(int);
+            //mtbPrecio.MaskInputRejected += mtbPrecio_MaskInputRejected;
             // 
             // cmdCancelar
             // 
             cmdCancelar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            cmdCancelar.Location = new Point(164, 362);
+            cmdCancelar.Location = new Point(187, 483);
+            cmdCancelar.Margin = new Padding(3, 4, 3, 4);
             cmdCancelar.Name = "cmdCancelar";
-            cmdCancelar.Size = new Size(96, 30);
+            cmdCancelar.Size = new Size(127, 40);
             cmdCancelar.TabIndex = 12;
             cmdCancelar.Text = "CANCELAR";
             cmdCancelar.UseVisualStyleBackColor = true;
@@ -152,26 +166,26 @@
             // lblResultado
             // 
             lblResultado.AutoSize = true;
-            lblResultado.Location = new Point(32, 409);
+            lblResultado.Location = new Point(37, 545);
             lblResultado.Name = "lblResultado";
-            lblResultado.Size = new Size(64, 15);
+            lblResultado.Size = new Size(81, 20);
             lblResultado.TabIndex = 14;
             lblResultado.Text = "Resultados";
             // 
             // lstbRegistros
             // 
             lstbRegistros.FormattingEnabled = true;
-            lstbRegistros.ItemHeight = 15;
-            lstbRegistros.Location = new Point(35, 434);
+            lstbRegistros.Location = new Point(40, 579);
+            lstbRegistros.Margin = new Padding(3, 4, 3, 4);
             lstbRegistros.Name = "lstbRegistros";
-            lstbRegistros.Size = new Size(376, 94);
+            lstbRegistros.Size = new Size(429, 124);
             lstbRegistros.TabIndex = 15;
             // 
             // frmRegistro
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(423, 549);
+            ClientSize = new Size(483, 732);
             Controls.Add(lstbRegistros);
             Controls.Add(lblResultado);
             Controls.Add(cmdCancelar);
@@ -185,9 +199,9 @@
             Controls.Add(lblCantidad);
             Controls.Add(lblPrecioUnitario);
             Controls.Add(lblFecha);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmRegistro";
             Text = "Registro";
-            Load += frmRegistro_Load;
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
             ResumeLayout(false);
             PerformLayout();
