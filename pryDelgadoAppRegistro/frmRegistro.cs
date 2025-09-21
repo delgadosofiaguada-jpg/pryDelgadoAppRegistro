@@ -53,7 +53,7 @@ namespace pryDelgadoAppRegistro
 
         private void mtbPrecio_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            if (mtbPrecio.Text !="")
+            if (mtbPrecio.Text != "")
             {
                 cmdAceptar.Enabled = true;
             }
@@ -77,5 +77,7 @@ namespace pryDelgadoAppRegistro
         {
             LimpiarControles();
         }
+
+      
     }
 }

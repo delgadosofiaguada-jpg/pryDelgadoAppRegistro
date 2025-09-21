@@ -148,8 +148,7 @@
             mtbPrecio.Name = "mtbPrecio";
             mtbPrecio.Size = new Size(259, 27);
             mtbPrecio.TabIndex = 11;
-            mtbPrecio.ValidatingType = typeof(int);
-            //mtbPrecio.MaskInputRejected += mtbPrecio_MaskInputRejected;
+            mtbPrecio.MaskInputRejected += mtbPrecio_MaskInputRejected;
             // 
             // cmdCancelar
             // 
