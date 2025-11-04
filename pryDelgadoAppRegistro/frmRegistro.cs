@@ -8,6 +8,17 @@ namespace pryDelgadoAppRegistro
         {
             InitializeComponent();
         }
+
+        struct RegVentas
+        {
+            public DateTime Fecha;
+            public string Producto;
+            public int Cantidad;
+            public int Precio;
+        }
+        RegVentas[] VectorVentas = new RegVentas[10];
+        int i = 0;
+
         private void LimpiarControles()
         {
             lstProductos.SelectedIndex = -1;
@@ -65,10 +76,31 @@ namespace pryDelgadoAppRegistro
 
         private void cmdAceptar_Click(object sender, EventArgs e)
         {
-            lstbRegistros.Items.Add("Fecha:" + " " + dtpFecha.Text);
-            lstbRegistros.Items.Add("Producto:" + " " + lstProductos.SelectedItem);
-            lstbRegistros.Items.Add("Cantidad:" + " " + nudCantidad.Value);
-            lstbRegistros.Items.Add("Precio:$" + " " + mtbPrecio.Text + "\n");
+
+
+            VectorVentas[i].Fecha = dtpFecha.Value;
+            VectorVentas[i].Producto = lstProductos.Text;
+            VectorVentas[i].Cantidad = Convert.ToInt32(nudCantidad.Value);
+            string precioText = mtbPrecio.Text.Replace("$", "").Trim();
+            if (int.TryParse(precioText, out int precio))
+            {
+                VectorVentas[i].Precio = precio;
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese un precio válido.");
+                return;
+            }
+
+
+            lblResultados.Text +=
+                VectorVentas[i].Fecha.ToShortDateString() + " - " +
+                VectorVentas[i].Producto + " | " +
+                "Cantidad: " + VectorVentas[i].Cantidad + " | " +
+                "Precio: $" + VectorVentas[i].Precio + "\n";
+
+
+            i++;
 
             LimpiarControles();
         }
@@ -78,9 +110,5 @@ namespace pryDelgadoAppRegistro
             LimpiarControles();
         }
 
-        private void lblResultado_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
